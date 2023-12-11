@@ -19,6 +19,7 @@ async def create_images(agent, prompts: str, paths: str, model="dall-e-3", size=
 
 
 async def create_image(agent, prompt: str, path: str, model="dall-e-3", size="1024x1024"):
+    if not path.startswith("store"): path = "store/" + path
     allowed_sizes = {
         "dall-e-2": ["256x256", "512x512", "1024x1024"],
         "dall-e-3": ["1024x1024", "1792x1024", "1024x1792"]

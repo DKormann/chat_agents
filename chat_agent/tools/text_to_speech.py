@@ -11,6 +11,7 @@ client = OpenAI(
 
 
 async def text_to_speech(agent, text: str, path: str, model="tts-1", voice="alloy"):
+    if not path.startswith("store"): path = path + "store/"
     if os.path.dirname(path):
         os.makedirs(os.path.dirname(path), exist_ok=True)
     response = client.audio.speech.create(
